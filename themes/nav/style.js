@@ -7,7 +7,10 @@
 const Style = () => {
   return <style jsx global>{`
     body {
-        background-color: #fbfbfb;
+        background-color: #f8f9fa;
+        background-image:
+            radial-gradient(circle, #d1d5db 1px, transparent 1px);
+        background-size: 20px 20px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         -webkit-font-smoothing: antialiased;
     }
@@ -44,6 +47,13 @@ const Style = () => {
     }*/
     .main-menu {
         box-shadow: 0 1px 4px rgb(0 0 0/8%);
+        background-color: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+    }
+
+    .dark .main-menu {
+        background-color: rgba(31, 41, 55, 0.95);
+        backdrop-filter: blur(10px);
     }
     .nav-menu {
         padding: 8px 0px 4px 0px;
@@ -88,19 +98,18 @@ const Style = () => {
         cursor: pointer;
         transition: box-shadow 0.1s ease-in-out;
         box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
-        /*background-color: #fff;
-        height: calc(100% - 16px);
-        overflow: visible;
-        padding: 15px;
-        border-radius: 0.75rem;
-        /*border-radius: 8px;*/
+        background-color: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
         margin-bottom: 16px !important;
-        box-shadow: 0 1px 4px rgb(0 0 0 / 8%);
-        cursor: pointer;
         display: flow-root;
         position: relative;
         box-sizing: border-box;
-        transition: box-shadow 0.1s ease-in-out;*/
+    }
+
+    .dark .card {
+        background-color: rgba(31, 41, 55, 0.9);
+        border: 1px solid rgba(75, 85, 99, 0.3);
     }
     .card:hover {
         box-shadow: 0 14px 25px rgba(0, 0, 0, 0.16);
@@ -114,9 +123,12 @@ const Style = () => {
         display: none;
     }
     
-    // 底色
+    // 深色模式的点阵网格背景
     .dark body{
-        background-color: black;
+        background-color: #111827;
+        background-image:
+            radial-gradient(circle, #374151 1px, transparent 1px);
+        background-size: 20px 20px;
     }
 
   `}</style>
