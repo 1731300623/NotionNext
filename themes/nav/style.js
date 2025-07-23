@@ -16,7 +16,28 @@ const Style = () => {
         font-size: 13px;
     }
     #top-wrapper img {
-        height: 100px;
+        height: 100px; /* 桌面端大尺寸 */
+    }
+
+    /* 平板端适中尺寸 */
+    @media (max-width: 1024px) {
+        #top-wrapper img {
+            height: 80px;
+        }
+    }
+
+    /* 手机端小尺寸 */
+    @media (max-width: 768px) {
+        #top-wrapper img {
+            height: 50px;
+        }
+    }
+
+    /* 小屏手机更小尺寸 */
+    @media (max-width: 480px) {
+        #top-wrapper img {
+            height: 40px;
+        }
     }
     /*#top-nav {
         background-color: rgb(251 251 251 / 70%);
