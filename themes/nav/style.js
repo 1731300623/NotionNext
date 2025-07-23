@@ -16,7 +16,7 @@ const Style = () => {
         font-size: 13px;
     }
     #top-wrapper img {
-        height: 60px;
+        height: 100px;
     }
     /*#top-nav {
         background-color: rgb(251 251 251 / 70%);
