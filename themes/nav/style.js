@@ -8,6 +8,8 @@ const Style = () => {
   return <style jsx global>{`
     body {
         background-color: #fbfbfb;
+        background-image: radial-gradient(circle, #e0e0e0 1px, rgba(0, 0, 0, 0) 1px);
+        background-size: 20px 20px;
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         -webkit-font-smoothing: antialiased;
     }
@@ -15,8 +17,20 @@ const Style = () => {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         font-size: 13px;
     }
+    #top-wrapper {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center;     /* 垂直居中（如果需要）*/
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+}
     #top-wrapper img {
-        height: 44px;
+        height: 42px; // 小屏幕上的默认高度
+    }
+    @media (min-width: 768px) { // md 及以上尺寸
+        #top-wrapper img {
+            height: 120px;
+        }
     }
     /*#top-nav {
         background-color: rgb(251 251 251 / 70%);
@@ -96,6 +110,11 @@ const Style = () => {
     // 底色
     .dark body{
         background-color: black;
+        background-image: radial-gradient(circle, #333 1px, rgba(0, 0, 0, 0) 1px);
+        background-size: 20px 20px;
+    }
+    .dark #top-wrapper img {
+        filter: invert(1);
     }
 
   `}</style>
