@@ -17,21 +17,59 @@ const Style = () => {
         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
         font-size: 13px;
     }
+
+    /* --- 修改开始 --- */
+
+    /* 默认样式 (小屏幕) */
     #top-wrapper {
-    display: flex;
-    justify-content: center; /* 水平居中 */
-    align-items: center;     /* 垂直居中（如果需要）*/
-    padding-top: 2rem;
-    padding-bottom: 1rem;
-}
-    #top-wrapper img {
-        height: 42px; // 小屏幕上的默认高度
+        display: flex;
+        flex-direction: row;      /* 改为行方向，让logo和文字横向排列 */
+        align-items: center;      /* 垂直居中对齐 logo 和文字 */
+        gap: 0.75rem;             /* 在 logo 和文字之间添加一些间距 (12px) */
     }
-    @media (min-width: 768px) { // md 及以上尺寸
+
+    #top-wrapper img {
+        height: 38px; /* 稍微调小一点logo，给文字留出空间 */
+        flex-shrink: 0; /* 防止logo图像被压缩 */
+    }
+
+    /* 使用伪元素在小屏幕上添加文字 */
+    #top-wrapper::after {
+        content: '滕甲彬的博客';
+        font-size: 16px;      /* 调大字号，使其更清晰 */
+        font-weight: bold;
+        color: #333;
+        white-space: nowrap;  /* 防止文字换行 */
+    }
+    
+    .dark #top-wrapper::after {
+        color: #f1f1f1; /* 深色模式下的文字颜色 */
+    }
+
+    /* 媒体查询 (md 及以上大屏幕尺寸) */
+    @media (min-width: 768px) {
+        #top-wrapper {
+            display: flex;
+            flex-direction: column;  /* 在大屏幕上恢复为列方向 */
+            justify-content: center; /* 水平居中 */
+            align-items: center;     /* 垂直居中 */
+            padding-top: 2rem;
+            padding-bottom: 1rem;
+            gap: 0; /* 在大屏幕上不需要间距 */
+        }
+
         #top-wrapper img {
-            height: 120px;
+            height: 120px; /* 恢复大屏幕上的logo高度 */
+        }
+
+        /* 在大屏幕上隐藏伪元素文字 */
+        #top-wrapper::after {
+            display: none;
         }
     }
+
+    /* --- 修改结束 --- */
+
     /*#top-nav {
         background-color: rgb(251 251 251 / 70%);
     }*/
@@ -121,3 +159,4 @@ const Style = () => {
 }
 
 export { Style }
+
